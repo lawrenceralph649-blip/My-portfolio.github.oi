@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio of Ralph Lawrence J. Felicisimo, a BSIT student from Binalbagan, Negros Occidental.">
+  <title>Ralph Lawrence J. Felicisimo | Portfolio</title>
+  <style>
+    :root {
+      --bg: #070d18;
+      --panel: #101b2c;
+      --panel2: #0c1626;
+      --blue: #2697ff;
+      --blue-light: #72c1ff;
+      --text: #f4f7fb;
+      --muted: #aab8ca;
+      --line: rgba(105, 174, 255, .22);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(27, 111, 205, .18), transparent 30rem),
+        linear-gradient(135deg, #070d18, #0a1424 55%, #07101e);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(5, 11, 21, .92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      min-height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 22px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 12px; color: white; font-size: 20px; font-weight: 900;
+      background: linear-gradient(135deg, #1685ed, #54bdff);
+      box-shadow: 0 0 24px rgba(38,151,255,.3);
+    }
+    .brand small { display: block; color: var(--muted); font-size: 11px; letter-spacing: 2px; font-weight: 500; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 22px; align-items: center; }
+    .nav-links a { color: #dbe7f5; font-size: 13px; transition: .2s; }
+    .nav-links a:hover { color: var(--blue-light); }
+    .hero { padding: 72px 0 55px; overflow: hidden; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px;
+      align-items: center; min-height: 470px;
+    }
+    .eyebrow { color: var(--blue-light); letter-spacing: 4px; text-transform: uppercase; font-size: 12px; font-weight: 700; }
+    h1 { font-size: clamp(42px, 6vw, 76px); line-height: 1.02; letter-spacing: -2.5px; margin: 13px 0 18px; }
+    h1 span { color: var(--blue); display: block; }
+    .hero-sub { color: #d2deec; letter-spacing: 3px; font-size: 14px; font-weight: 700; }
+    .motto { color: var(--muted); font-style: italic; margin: 18px 0 27px; }
+    .button {
+      display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px;
+      background: linear-gradient(100deg, #1685ed, #39adff);
+      border-radius: 30px; color: white; font-weight: 700; font-size: 13px;
+      box-shadow: 0 8px 28px rgba(24,132,237,.22);
+    }
+    .portrait-wrap {
+      position: relative; display: flex; justify-content: center; align-items: end;
+      min-height: 430px; isolation: isolate;
+    }
+    .portrait-wrap::before {
+      content: ""; position: absolute; width: 330px; height: 330px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(38,151,255,.34), rgba(38,151,255,.02) 68%, transparent 70%);
+      bottom: 28px; z-index: -1;
+    }
+    .portrait {
+      width: min(100%, 390px); height: 445px; object-fit: cover;
+      object-position: center 27%; border-radius: 190px 190px 28px 28px;
+      border: 1px solid rgba(93,178,255,.45);
+      box-shadow: 0 0 45px rgba(38,151,255,.18);
+    }
+    section { padding: 30px 0; }
+    .section-title { margin-bottom: 22px; }
+    .section-title .eyebrow { margin-bottom: 4px; }
+    h2 { font-size: clamp(25px, 3vw, 34px); line-height: 1.2; }
+    h2 span { color: var(--blue-light); }
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card {
+      padding: 25px; border: 1px solid var(--line); border-radius: 18px;
+      background: linear-gradient(145deg, rgba(18,31,50,.96), rgba(9,18,32,.96));
+      box-shadow: 0 12px 35px rgba(0,0,0,.16);
+    }
+    .card h3 { font-size: 19px; margin-bottom: 12px; color: var(--blue-light); }
+    .card p { color: #d5dfeb; font-size: 14px; }
+    .info-grid { display: grid; grid-template-columns: 145px 1fr; gap: 8px 14px; font-size: 14px; }
+    .info-grid dt { color: var(--muted); }
+    .info-grid dd { color: var(--text); font-weight: 600; }
+    .timeline { display: grid; gap: 16px; }
+    .school { border-left: 2px solid var(--blue); padding: 0 0 0 17px; position: relative; }
+    .school::before {
+      content: ""; position: absolute; width: 9px; height: 9px; border-radius: 50%;
+      background: var(--blue-light); left: -5.5px; top: 7px;
+      box-shadow: 0 0 12px rgba(38,151,255,.7);
+    }
+    .school strong { display: block; color: white; }
+    .school span { color: var(--muted); font-size: 13px; }
+    .skill-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .skill {
+      padding: 12px 14px; background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.06); border-radius: 11px;
+      color: #e5edf7; font-size: 14px;
+    }
+    .skill::before { content: "✦"; color: var(--blue-light); margin-right: 9px; }
+    .goal-card { border-color: rgba(38,151,255,.4); }
+    .goal-card p + p { margin-top: 12px; }
+    .contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 16px; }
+    .contact-chip {
+      display: inline-block; padding: 9px 14px; border-radius: 24px;
+      border: 1px solid var(--line); color: #dce9f8; font-size: 13px;
+    }
+    footer { margin-top: 45px; padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    @media (max-width: 760px) {
+      .nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 12px 17px; }
+      .hero { padding-top: 42px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 22px; }
+      .portrait-wrap { min-height: 330px; }
+      .portrait { height: 350px; width: min(85%, 330px); }
+      .cards { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 420px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      h1 { font-size: 42px; }
+      .skill-list { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 110px 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Ralph portfolio home">
+        <span class="brand-mark">RL</span>
+        <span>Ralph Lawrence J. Felicisimo<small>PERSONAL PORTFOLIO</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a>
+        <a href="#skills">Skills</a><a href="#goals">Goals</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Welcome to my portfolio</p>
+          <h1>Hi, I'm Ralph <span>Lawrence J. Felicisimo</span></h1>
+          <p class="hero-sub">BSIT STUDENT · FUTURE IT PROFESSIONAL</p>
+          <p class="motto">“Dream big, work hard, stay kind, and keep moving forward.”</p>
+          <a class="button" href="#about">Explore My Portfolio <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="portrait-wrap">
+          <img class="portrait" src="assets/ralph-portrait.jpg" alt="Portrait of Ralph Lawrence J. Felicisimo">
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title"><p class="eyebrow">A little about me</p><h2>About <span>Me</span></h2></div>
+        <div class="cards">
+          <article class="card">
+            <h3>My Story</h3>
+            <p>I am a soft-hearted and considerate person who values friendship and cares deeply about the people around me. There have been times when I put other people's happiness before my own because I wanted to feel accepted and valued. I am learning that being kind also means setting healthy boundaries and recognizing my own needs.</p>
+            <p style="margin-top:12px">I sometimes keep my worries, anxiety, and academic struggles to myself. I may doubt my abilities when I feel that I have not met other people's expectations, but I am working on becoming more confident, independent, and open about what I feel. The person I used to be has changed, and I see that change as part of growing up. I want to keep the kindness in my heart while becoming stronger, wiser, and more responsible.</p>
+          </article>
+          <article class="card">
+            <h3>Personal Information</h3>
+            <dl class="info-grid">
+              <dt>Full Name</dt><dd>Ralph Lawrence J. Felicisimo</dd>
+              <dt>Program</dt><dd>Bachelor of Science in Information Technology (BSIT)</dd>
+              <dt>School</dt><dd>Binalbagan Catholic College</dd>
+              <dt>Location</dt><dd>Brgy. Sto. Rosario, Binalbagan, Negros Occidental, Philippines</dd>
+            </dl>
+            <p style="margin-top:16px;color:var(--muted);font-size:12px">Personal details such as a full birth date and exact house address are intentionally not displayed on this public portfolio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-title"><p class="eyebrow">My learning journey</p><h2>Educational <span>Background</span></h2></div>
+        <div class="card timeline">
+          <div class="school"><strong>College — Current</strong><span>Binalbagan Catholic College</span></div>
+          <div class="school"><strong>Senior High School</strong><span>Binalbagan National High School</span></div>
+          <div class="school"><strong>Junior High School</strong><span>Binalbagan Catholic School and Binalbagan National High School</span></div>
+          <div class="school"><strong>Elementary</strong><span>Binalbagan South Elementary School</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title"><p class="eyebrow">What I enjoy and practice</p><h2>Skills &amp; <span>Interests</span></h2></div>
+        <div class="card">
+          <div class="skill-list">
+            <div class="skill">Basketball</div>
+            <div class="skill">Volleyball</div>
+            <div class="skill">Singing (when my voice feels good)</div>
+            <div class="skill">Willingness to learn new technology</div>
+            <div class="skill">Caring and supporting others</div>
+            <div class="skill">Personal growth and adaptability</div>
+          </div>
+          <p style="margin-top:16px">I enjoy sports, especially basketball, and I sometimes play volleyball. I also enjoy singing when I am feeling well. As an IT student, I am continuing to develop my technical knowledge and practical skills through learning and experience.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <div class="container">
+        <div class="section-title"><p class="eyebrow">What keeps me moving</p><h2>My <span>Goals</span></h2></div>
+        <article class="card goal-card">
+          <h3>My Purpose and Motivation</h3>
+          <p>One of my biggest goals is to finish my college education, find a stable and meaningful job, and help support my family. I especially want to help my younger brother as he continues his own college journey. I know that my parents have responsibilities and financial challenges, so I hope to become someone who can contribute and make life a little easier for them.</p>
+          <p>Information Technology was not my first choice, and I know I still have a lot to learn. However, I am willing to improve, explore the field, and work hard to build a future in this course. I may not know everything today, but I believe that patience, consistency, and determination can help me grow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title"><p class="eyebrow">Let's connect</p><h2>Contact <span>Me</span></h2></div>
+        <div class="card">
+          <p>Thank you for visiting my personal portfolio. I am always open to learning, meeting new people, and exploring opportunities that can help me grow as a student and future IT professional.</p>
+          <div class="contact-row">
+            <span class="contact-chip">Binalbagan, Negros Occidental</span>
+            <a class="contact-chip" href="#home">Back to top ↑</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span><strong>Ralph Lawrence J. Felicisimo</strong> · BSIT Student</span>
+      <span>Designed as a personal student portfolio · © 2026</span>
+    </div>
+  </footer>
+</body>
+</html>
